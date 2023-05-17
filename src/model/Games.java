@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDateTime;
 
 public class Games {
-    private Usuario usuario = new Usuario();
+
     private STATUS status;
     private FIGURE figure;
     private String DateTimeFormatter;
@@ -11,19 +11,11 @@ public class Games {
     public Games() {
     }
 
-    public Games(Usuario usuario, STATUS status, FIGURE figure, String dateTimeFormatter) {
-        this.usuario = usuario;
+    public Games( STATUS status, FIGURE figure, String dateTimeFormatter) {
+ 
         this.status = status;
         this.figure = figure;
         DateTimeFormatter = dateTimeFormatter;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public STATUS getStatus() {
