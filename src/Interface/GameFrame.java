@@ -1,34 +1,50 @@
 package Interface;
 
+import model.*;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class GameFrame extends javax.swing.JFrame {
 
+	Games infp = new Games();
+	GameMode initGame = new GameMode();
+	//String start = infp.getFigure;
+	String start = "  X";
+
+	private void choosePlayer(){
+		if(start.equalsIgnoreCase("  X")){
+			start="  O";
+		}else{
+			start="  X";
+		}
+	}
+	
     public GameFrame() {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
         this.setIconImage(icon.getImage());
     }
-
+    
+    
     @SuppressWarnings("unchecked")
-                       
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         labelMessage = new javax.swing.JLabel();
         tabbedPane = new javax.swing.JTabbedPane();
         panel1 = new javax.swing.JPanel();
         gridPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
+        b4 = new javax.swing.JButton();
+        b5 = new javax.swing.JButton();
+        b6 = new javax.swing.JButton();
+        b7 = new javax.swing.JButton();
+        b8 = new javax.swing.JButton();
+        b9 = new javax.swing.JButton();
         panel2 = new javax.swing.JPanel();
         labelName = new javax.swing.JLabel();
         labelUserN = new javax.swing.JLabel();
@@ -59,68 +75,77 @@ public class GameFrame extends javax.swing.JFrame {
         gridPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridPanel.setLayout(new java.awt.GridLayout(3, 3));
 
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        b1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                b1ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton1);
+        gridPanel.add(b1);
 
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        b2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                b2ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton2);
+        gridPanel.add(b2);
 
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        b3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                b3ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton3);
+        gridPanel.add(b3);
 
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        b4.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                b4ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton4);
+        gridPanel.add(b4);
 
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        b5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                b5ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton5);
+        gridPanel.add(b5);
 
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        b6.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                b6ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton6);
+        gridPanel.add(b6);
 
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        b7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                b7ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton7);
+        gridPanel.add(b7);
 
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        b8.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                b8ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton8);
+        gridPanel.add(b8);
 
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        b9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 50)); // NOI18N
+        b9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                b9ActionPerformed(evt);
             }
         });
-        gridPanel.add(jButton9);
+        gridPanel.add(b9);
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -262,11 +287,9 @@ public class GameFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(labelMessage)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMessage, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(64, 64, 64))
         );
         layout.setVerticalGroup(
@@ -283,41 +306,124 @@ public class GameFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+    	// TODO add your handling code here:
+    	b1.setText(start);
+    	if (start.equals("  X")) {
+			b1.setForeground(Color.BLUE);
+		} else {
+			b1.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(0, 0);;
+    	
+    	choosePlayer();
+    }                                  
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b2.setText(start);
+    	if (start.equals("  X")) {
+			b2.setForeground(Color.BLUE);
+		} else {
+			b2.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(0, 1);;
+    	choosePlayer();
+    	
+    }                                  
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b3.setText(start);
+    	if (start.equals("  X")) {
+			b3.setForeground(Color.BLUE);
+		} else {
+			b3.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(0, 2);;
+    	choosePlayer();
+    }                                  
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b4.setText(start);
+    	if (start.equals("  X")) {
+			b4.setForeground(Color.BLUE);
+		} else {
+			b4.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(1, 0);;
+    	choosePlayer();
+    }                                  
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b5.setText(start);
+    	if (start.equals("  X")) {
+			b5.setForeground(Color.BLUE);
+		} else {
+			b5.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(1, 1);;
+    	choosePlayer();
+    }                                  
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b6.setText(start);
+    	if (start.equals("  X")) {
+			b6.setForeground(Color.BLUE);
+		} else {
+			b6.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(1, 2);;
+    	choosePlayer();
+    }                                  
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b7.setText(start);
+    	if (start.equals("  X")) {
+			b7.setForeground(Color.BLUE);
+		} else {
+			b7.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(2, 0);;
+    	choosePlayer();
+    }                                  
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b8.setText(start);
+    	if (start.equals("  X")) {
+			b8.setForeground(Color.BLUE);
+		} else {
+			b8.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(2, 1);;
+    	choosePlayer();
+    }                                  
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {                                   
         // TODO add your handling code here:
-    }                                        
+    	b9.setText(start);
+    	if (start.equals("  X")) {
+			b9.setForeground(Color.BLUE);
+		} else {
+			b9.setForeground(Color.RED);
+		}
+    	
+    	initGame.clickButton(2, 2);;
+    	choosePlayer();
+    }                                  
 
 
     public static void main(String args[]) {
@@ -328,17 +434,18 @@ public class GameFrame extends javax.swing.JFrame {
             }
         });
     }
-                  
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b2;
+    private javax.swing.JButton b3;
+    private javax.swing.JButton b4;
+    private javax.swing.JButton b5;
+    private javax.swing.JButton b6;
+    private javax.swing.JButton b7;
+    private javax.swing.JButton b8;
+    private javax.swing.JButton b9;
     private javax.swing.JPanel gridPanel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -355,6 +462,5 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panel2;
     private javax.swing.JPanel panel3;
     private javax.swing.JTabbedPane tabbedPane;
-                
+    // End of variables declaration                   
 }
-
