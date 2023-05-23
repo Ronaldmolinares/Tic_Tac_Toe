@@ -1,41 +1,469 @@
 package Interface;
 
-import model.*;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class GameFrame extends javax.swing.JFrame {
-	Games infp = new Games();
-	UserDataFrame userI =new UserDataFrame();
-	GameMode initGame = new GameMode();
-	//String start = infp.getFigure;
-	String start = "  X";
-	
-	
-	private void choosePlayer(){
-		if(start.equalsIgnoreCase("  X")){
-			start="  O";
-		}else{
-			start="  X";
-		}
-	}
-	public GameFrame() {
-		
-	}
-    public GameFrame(Games infoPlayer) {
-    	infp=infoPlayer;
+
+    private int board [] [] = new int [3][3];
+    private int win = -1;
+    String figurePerson = "X"; //.getFigure
+    String figurePC = "O";
+    
+    
+    public GameFrame() {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
         this.setIconImage(icon.getImage());
-       
+        initGame();
+        window();
+    }
+
+    
+    public void turn(){
+            if (!(boardFull () || combinations () != -1)) {
+            int prim = 0; int prim2 = 0; int min1 = Integer.MIN_VALUE; int to;
+        
+        if (board[0][0] == -1) {
+                board[0][0] = 1;
+                to = min();
+            if (to > min1) {
+                min1 = to; prim =0; prim2=0;
+            }
+            board[0][0]=-1;
+        }
+        if (board[0][1] == -1) {
+            board[0][1] = 1;
+                to = min();
+            if (to > min1) {
+                min1 = to; prim =0; prim2=1;
+            }
+            board[0][1]=-1;
+        }
+        if (board[0][2]== -1){
+            board[0][2] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=0; prim2=2;
+            }
+            board[0][2]= -1;
+        }
+        if(board[1][0] == -1){
+            board[1][0] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=1; prim2=0;    
+            }
+            board[1][0]= -1;
+        }
+        if (board[1][1]== -1){
+            board[1][1] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=1; prim2=1;    
+            }
+            board[1][1]= -1;
+        }
+        if(board[1][2]== -1){
+            board[1][2] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=1; prim2=2;    
+            }
+            board[1][2]= -1;
+        }
+        if(board[2][0]== -1){
+            board[2][0] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=2; prim2=0;    
+            }
+            board[2][0]= -1; 
+        }
+        if(board[2][1]== -1){
+            board[2][1] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=2; prim2=1;    
+            }
+            board[2][1]= -1;       
+        }      
+        if(board[2][2]== -1){
+                        board[2][2] = 1;
+            to = min();
+            if(to>min1){
+                min1= to; prim=2; prim2=2;    
+            }
+            board[2][2]= -1;
+        }
+        
+        board [prim][prim2] = 1;
+        } 
+        win = combinations();
+    }
+    
+
+    private boolean boardFull() {
+        if (board[0][0] == -1) {
+            return false;
+        }
+        if (board[0][1] == -1) {
+            return false;
+        }
+        if (board[0][2] == -1) {
+            return false;
+        }
+        if (board[1][0] == -1){
+            return false;
+        }
+        if (board[1][1] == -1 ){
+            return false;
+        }
+        if (board[1][2] == -1) {
+            return false;
+        }
+        if (board[2][0] == -1 ){
+            return false;
+        }
+        if (board[2][1] == -1) {
+            return false;
+        }
+        if (board[2][2] == -1 ){
+            return false;
+        }
+        return true;
     }
     
     
+    public void initGame(){
+        board[0][0] = -1; board[0][1] = -1; board[0][2] = -1; board[1][0] = -1;
+        board[1][1] = -1; board[1][2] = -1; board[2][0] = -1; board[2][1] = -1;
+        board[2][2] = -1;
+        win = -1;
+    }
+    
+    
+     private int combinations() {
+         if(board [0][0] != -1 && board [0][0] == board [0][1] && board [0][0] == board [0][2]){
+             return board [0][0];
+         }
+         if(board [1][0] != -1 && board [1][0] == board [1][1] && board [1][0] == board [1][2]){
+             return board [1][0];
+         }
+         if(board [2][0] != -1 && board [2][0] == board [2][1] && board [2][0] == board [2][2]){
+             return board [2][0];
+         }
+         if(board [0][0] != -1 && board [0][0] == board [1][0] && board [0][0] == board [2][0]){
+             return board [0][0];
+         }
+         if(board [0][1] != -1 && board [0][1] == board [1][1] && board [0][1] == board [2][1]){
+             return board [0][1];
+         }
+         if(board [0][2] != -1 && board [0][2] == board [1][2] && board [0][2] == board [2][2]){
+             return board [0][2];
+         }
+         if(board [0][0] != -1 && board [0][0] == board [1][1] && board [0][0] == board [2][2]){
+             return board [0][0];
+         }
+         if(board [0][2] != -1 && board [0][2] == board [1][1] && board [0][2] == board [2][0]){
+             return board [0][2];
+         } 
+         return -1;
+}
+     
+     public void execute(int p, int q){
+         if (board[p][q] == -1) {
+             if (win == -1) {
+                board[p][q]=0;
+                win = combinations();
+                turn();
+             }
+         }
+     }
+    
+     private int min() {
+         if (boardFull() || combinations() != -1) {
+             if (combinations() != -1) {
+                 return 1;
+             } else {
+             return 0;
+            }
+         }
+         int max1 = Integer.MAX_VALUE; int to;
+            if (board[0][0] == -1) {
+                board[0][0] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[0][0] = -1;
+         }
+            
+            if (board[0][1] == -1) {
+             board[0][1] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[0][1] = -1;
+         }
+            if (board[0][2] == -1) {
+             board[0][2] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[0][2] = -1;
+         }
+            if (board[1][0] == -1) {
+                board[1][0] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[1][0] = -1;
+         }
+            if (board[1][1] == -1) {
+             board[1][1] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[1][1] = -1;
+         }
+            if (board[1][2] == -1) {
+             board[1][2] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[1][2] = -1;
+         }
+         if (board[2][0] == -1) {
+             board[2][0] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[2][0] = -1;
+         }
+         if (board[2][1] == -1) {
+             board[2][1] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[2][1] = -1;
+         }
+         if (board[2][2] == -1) {
+             board[2][2] = 0; to = max();
+                if (to < max1) {
+                    max1 = to;
+                }
+                board[2][2] = -1;
+         }
+         return max1;
+}
+     
+     
+     private int max() {
+         if (boardFull() || combinations() != -1) {
+             if (combinations() != -1) {
+                 return -1;
+             } else {
+             return 0;
+            }
+         }
+         
+         int min1 = Integer.MIN_VALUE; int to;
+            if (board[0][0] == -1) {
+                board[0][0] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[0][0] = -1;
+         }
+            
+            if (board[0][1] == -1) {
+             board[0][1] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[0][1] = -1;
+         }
+            if (board[0][2] == -1) {
+             board[0][2] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[0][2] = -1;
+         }
+            if (board[1][0] == -1) {
+                board[1][0] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[1][0] = -1;
+         }
+            if (board[1][1] == -1) {
+             board[1][1] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[1][1] = -1;
+         }
+            if (board[1][2] == -1) {
+             board[1][2] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[1][2] = -1;
+         }
+         if (board[2][0] == -1) {
+             board[2][0] = 1; to = min();
+                if (to > min1) {
+                   min1 = to;
+                }
+                board[2][0] = -1;
+         }
+         if (board[2][1] == -1) {
+             board[2][1] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[2][1] = -1;
+         }
+         if (board[2][2] == -1) {
+             board[2][2] = 1; to = min();
+                if (to > min1) {
+                    min1 = to;
+                }
+                board[2][2] = -1;
+         }
+
+         return min1;
+     }
+     
+     public void winner(){
+         switch (win) {
+             case 0:
+                 JOptionPane.showMessageDialog(null, "Jugador has ganado");
+                 break;
+            case 1:
+                 JOptionPane.showMessageDialog(null, "La PC te ha ganado");
+                 break;
+             default:
+                 if (boardFull()) {
+                     
+                     JOptionPane.showMessageDialog(null, "¡Empate!");
+                     
+                     //JOptionPane.showMessageDialog(null, "¡Empate!");
+                 }
+                break;
+         }
+     }
+     
+    private void window() {
+        switch (board[0][0]) {
+            case 0:
+                b1.setText(figurePerson);
+                break;
+            case 1:
+                b1.setText(figurePC);
+                break;
+            default:
+                b1.setText("");
+                break;
+        }
+        switch (board[0][1]) {
+            case 0:
+                b2.setText(figurePerson);
+                break;
+            case 1:
+                b2.setText(figurePC);
+                break;
+            default:
+                b2.setText("");
+                break;
+        }
+        switch (board[0][2]) {
+            case 0:
+                b3.setText(figurePerson);
+                break;
+            case 1:
+                b3.setText(figurePC);
+                break;
+            default:
+                b3.setText("");
+                break;
+        }
+        switch (board[1][0]) {
+            case 0:
+                b4.setText(figurePerson);
+                break;
+            case 1:
+                b4.setText(figurePC);
+                break;
+            default:
+                b4.setText("");
+                break;
+        }
+        switch (board[1][1]) {
+            case 0:
+                b5.setText(figurePerson);
+                break;
+            case 1:
+                b5.setText(figurePC);
+                break;
+            default:
+                b5.setText("");
+                break;
+        }
+        switch (board[1][2]) {
+            case 0:
+                b6.setText(figurePerson);
+                break;
+            case 1:
+                b6.setText(figurePC);
+                break;
+            default:
+                b6.setText("");
+                break;
+        }
+        switch (board[2][0]) {
+            case 0:
+                b7.setText(figurePerson);
+                break;
+            case 1:
+                b7.setText(figurePC);
+                break;
+            default:
+                b7.setText("");
+                break;
+        }
+        switch (board[2][1]) {
+            case 0:
+                b8.setText(figurePerson);
+                break;
+            case 1:
+                b8.setText(figurePC);
+                break;
+            default:
+                b8.setText("");
+                break;
+        }
+        switch (board[2][2]) {
+            case 0:
+                b9.setText(figurePerson);
+                break;
+            case 1:
+                b9.setText(figurePC);
+                break;
+            default:
+                b9.setText("");
+                break;
+        }
+    }
+      
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
+
         labelMessage = new javax.swing.JLabel();
         tabbedPane = new javax.swing.JTabbedPane();
         panel1 = new javax.swing.JPanel();
@@ -68,7 +496,7 @@ public class GameFrame extends javax.swing.JFrame {
         setResizable(false);
 
         labelMessage.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
-        labelMessage.setText("The player "+infp.getNickName()+ " is playing with the machine.");
+        labelMessage.setText("The 'userName' is playing with the machine. It is the 'user / pc' turn");
 
         tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -177,18 +605,13 @@ public class GameFrame extends javax.swing.JFrame {
         labelName.setText("NickName");
 
         labelUserN.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        labelUserN.setText(infp.getNickName());
+        labelUserN.setText("setNickName");
 
         labelF.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 28)); // NOI18N
         labelF.setText("Figure");
 
         labelXO.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        labelXO.setText(infp.getFigure());
-        if(labelXO.getText()=="X") {
-        	labelXO.setBackground(Color.red);
-        }else {
-        	labelXO.setBackground(Color.blue);
-        }
+        labelXO.setText("setFigure");
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -235,7 +658,7 @@ public class GameFrame extends javax.swing.JFrame {
         panel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel1.setText("Lunna Karina Sosa Espitia 202213014");
+        jLabel1.setText("Lunna Karina Sosa Espitia 202213314");
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel2.setText("Ronald Samir Molinares Sanabria 202213350");
@@ -315,125 +738,58 @@ public class GameFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-
-    
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-    	// TODO add your handling code here:
-    	b1.setText(start);
-    	if (start.equals("  X")) {
-			b1.setForeground(Color.BLUE);
-		} else {
-			b1.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(0, 0);;
-    	
-    	choosePlayer();
+        execute(0, 0);
+        window();
+        winner();
     }                                  
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b2.setText(start);
-    	if (start.equals("  X")) {
-			b2.setForeground(Color.BLUE);
-		} else {
-			b2.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(0, 1);;
-    	choosePlayer();
-    	
+        execute(0, 1);
+        window();
+        winner();
     }                                  
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b3.setText(start);
-    	if (start.equals("  X")) {
-			b3.setForeground(Color.BLUE);
-		} else {
-			b3.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(0, 2);;
-    	choosePlayer();
+        execute(0, 2);
+        window();
+        winner();
     }                                  
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b4.setText(start);
-    	if (start.equals("  X")) {
-			b4.setForeground(Color.BLUE);
-		} else {
-			b4.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(1, 0);;
-    	choosePlayer();
+        execute(1, 0);
+        window();
+        winner();
     }                                  
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b5.setText(start);
-    	if (start.equals("  X")) {
-			b5.setForeground(Color.BLUE);
-		} else {
-			b5.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(1, 1);;
-    	choosePlayer();
+        execute(1, 1);
+        window();
+        winner();
     }                                  
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b6.setText(start);
-    	if (start.equals("  X")) {
-			b6.setForeground(Color.BLUE);
-		} else {
-			b6.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(1, 2);;
-    	choosePlayer();
+        execute(1, 2);
+        window();
+        winner();
     }                                  
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b7.setText(start);
-    	if (start.equals("  X")) {
-			b7.setForeground(Color.BLUE);
-		} else {
-			b7.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(2, 0);;
-    	choosePlayer();
+        execute(2, 0);
+        window();
+        winner();
     }                                  
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b8.setText(start);
-    	if (start.equals("  X")) {
-			b8.setForeground(Color.BLUE);
-		} else {
-			b8.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(2, 1);;
-    	choosePlayer();
+       execute(2, 1);
+        window();
+        winner();
     }                                  
 
     private void b9ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        // TODO add your handling code here:
-    	b9.setText(start);
-    	if (start.equals("  X")) {
-			b9.setForeground(Color.BLUE);
-		} else {
-			b9.setForeground(Color.RED);
-		}
-    	
-    	initGame.clickButton(2, 2);;
-    	choosePlayer();
+        execute(2, 2);
+        window();
+        winner();
     }                                  
 
 
@@ -441,9 +797,7 @@ public class GameFrame extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                GameFrame gF=new GameFrame();
-                gF.setVisible(true);
-                new GameMode(gF);
+                new GameFrame().setVisible(true);
             }
         });
     }
@@ -476,4 +830,6 @@ public class GameFrame extends javax.swing.JFrame {
     private javax.swing.JPanel panel3;
     private javax.swing.JTabbedPane tabbedPane;
     // End of variables declaration                   
+
+
 }
