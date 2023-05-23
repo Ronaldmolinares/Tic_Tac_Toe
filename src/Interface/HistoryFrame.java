@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import javax.swing.ImageIcon;
+import javax.swing.ScrollPaneConstants;
 
 import model.Games;
 
@@ -66,6 +67,9 @@ public class HistoryFrame extends javax.swing.JFrame {
         jTable1.setForeground(Color.BLACK);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setSelectionBackground(new java.awt.Color(204, 255, 255));
+        jTable1.setSelectionForeground(Color.BLACK);
+     
+        jScrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
         jScrollPane1.setViewportView(jTable1);
 
         backButton.setBackground(new java.awt.Color(255, 204, 51));
