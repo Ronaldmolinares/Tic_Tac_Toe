@@ -32,23 +32,27 @@ public class GameFrame extends javax.swing.JFrame {
 
 	private int board[][] = new int[3][3];
 	private int win = -1;
-	String figurePerson = "X"; // .getFigure
+	String figurePerson = ""; 
 	String figurePC = "O";
 
-	//REVISAR 
+	//REVISADO
 	public GameFrame(Games infoPlayer) {
 	    infoP = infoPlayer;
 	    figurePerson = infoP.getFigure();
-	    figurePC = (figurePerson.equals("X")) ? "O" : "X";
-	    if (figurePerson.equals(figurePC)) {
-	        figurePC = (figurePerson.equals("X")) ? "O" : "X";
-	    }
+	    
 	    initComponents();
 	    this.getContentPane().setBackground(Color.WHITE);
 	    ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
 	    this.setIconImage(icon.getImage());
+	    
+	    if (figurePerson.equals("  X")) {
+			figurePC = "O";
+		} else {
+			figurePC = "X";
+		}
 	    initGame();
 	    window();
+	    
 	}
 
 	public void turn() {
@@ -477,9 +481,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[0][0]) {
 		case 0:
 			b1.setText(figurePerson);
+			b1.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b1.setText(figurePC);
+			b1.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b1.setText("");
@@ -488,9 +494,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[0][1]) {
 		case 0:
 			b2.setText(figurePerson);
+			b2.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b2.setText(figurePC);
+			b2.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b2.setText("");
@@ -499,9 +507,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[0][2]) {
 		case 0:
 			b3.setText(figurePerson);
+			b3.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b3.setText(figurePC);
+			b3.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b3.setText("");
@@ -510,9 +520,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[1][0]) {
 		case 0:
 			b4.setText(figurePerson);
+			b4.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b4.setText(figurePC);
+			b4.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b4.setText("");
@@ -521,9 +533,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[1][1]) {
 		case 0:
 			b5.setText(figurePerson);
+			b5.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b5.setText(figurePC);
+			b5.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b5.setText("");
@@ -532,9 +546,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[1][2]) {
 		case 0:
 			b6.setText(figurePerson);
+			b6.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b6.setText(figurePC);
+			b6.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b6.setText("");
@@ -543,9 +559,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[2][0]) {
 		case 0:
 			b7.setText(figurePerson);
+			b7.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b7.setText(figurePC);
+			b7.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b7.setText("");
@@ -554,9 +572,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[2][1]) {
 		case 0:
 			b8.setText(figurePerson);
+			b8.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b8.setText(figurePC);
+			b8.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b8.setText("");
@@ -565,9 +585,11 @@ public class GameFrame extends javax.swing.JFrame {
 		switch (board[2][2]) {
 		case 0:
 			b9.setText(figurePerson);
+			b9.setForeground(new Color(51, 51, 255));
 			break;
 		case 1:
 			b9.setText(figurePC);
+			b9.setForeground(new Color(255, 51, 51));
 			break;
 		default:
 			b9.setText("");
@@ -612,7 +634,7 @@ public class GameFrame extends javax.swing.JFrame {
 		setResizable(false);
 
 		labelMessage.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
-		labelMessage.setText(infoP.getNickName() + " is playing with the machine");
+		labelMessage.setText(infoP.getNickName() + " is playing with the machine" + "                          ");
 
 		tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
 
