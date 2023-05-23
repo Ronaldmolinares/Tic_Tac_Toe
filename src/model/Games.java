@@ -7,31 +7,16 @@ public class Games {
 
 	private STATUS status;
 	private String figure;
-	private String DateTimeFormatter;
 	private String nickName;
-	private ArrayList<Games> listPlayers = new ArrayList<Games>();
 
 	public Games() {
 	}
 
-	public Games(STATUS status, String figure, String dateTimeFormatter, String nickName) {
+	public Games(STATUS status, String figure, String nickName) {
 		super();
 		this.status = status;
 		this.figure = figure;
-		DateTimeFormatter = dateTimeFormatter;
 		this.nickName = nickName;
-	}
-
-	public ArrayList<Games> getListPlayers() {
-		return listPlayers;
-	}
-
-	public void setListPlayers(ArrayList<Games> listPlayers) {
-		this.listPlayers = listPlayers;
-	}
-
-	public void addPlayer(Games player) {
-		listPlayers.add(player);
 	}
 
 	public String getNickName() {
@@ -58,26 +43,10 @@ public class Games {
 		this.figure = figure;
 	}
 
-	public String getDateTimeFormatter() {
-		return DateTimeFormatter;
+	@Override
+	public String toString() {
+		return nickName+ ";" + status + ";" + figure + ";" + LocalDateTime.now();
 	}
 
-	public void setDateTimeFormatter(String dateTimeFormatter) {
-		DateTimeFormatter = dateTimeFormatter;
-	}
 
-	public String getActualTime() {
-		DateTimeFormatter = "" + LocalDateTime.now();
-		return DateTimeFormatter;
-	}
-
-    public String toString(){
-    String info = "";
-        for (Games infoPlayers : listPlayers) {
-            info += "Nickname: " + infoPlayers.getNickName() + " Status: " + infoPlayers.getStatus() + " Figure: " + infoPlayers.getFigure() + " Data Time: " + infoPlayers.getDateTimeFormatter() + " \n";
-        }
-        
-        return info;
-    }
-	
 }

@@ -3,6 +3,8 @@ package Interface;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+import model.Games;
+
 public class HistoryFrame extends javax.swing.JFrame {
 
     public HistoryFrame() {
@@ -10,6 +12,10 @@ public class HistoryFrame extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.WHITE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
         this.setIconImage(icon.getImage());
+    }
+    
+    public HistoryFrame(Games games) {
+    	
     }
 
     @SuppressWarnings("unchecked")

@@ -17,9 +17,11 @@ public class UserDataFrame extends javax.swing.JFrame {
     /**
      * Creates new form UserDataFrame
      */
-	Games infoPlayer = new Games();;
+	Games infoPlayer = new Games();
 	
-    public UserDataFrame() {
+
+
+	public UserDataFrame() {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
@@ -74,8 +76,7 @@ public class UserDataFrame extends javax.swing.JFrame {
         textFieldNickName.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         textFieldNickName.setForeground(new java.awt.Color(153, 153, 153));
         textFieldNickName.setText("Enter your Nickname");
-	      
-
+        
         textFieldNickName.setBorder(null);
         textFieldNickName.setMaximumSize(new java.awt.Dimension(92, 21));
         textFieldNickName.setMinimumSize(new java.awt.Dimension(92, 21));
@@ -232,10 +233,8 @@ public class UserDataFrame extends javax.swing.JFrame {
     		infoPlayer.setFigure(rbuttonX.getText());
     	}
     	System.out.println(infoPlayer.getFigure());
-
-    	infoPlayer.addPlayer(infoPlayer);
     	
-    	GameFrame game = new GameFrame();
+    	GameFrame game = new GameFrame(infoPlayer);
     	game.setVisible(true);
     	this.dispose();
     	

@@ -1,5 +1,7 @@
 package model;
 
+import Interface.GameFrame;
+
 public class GameMode {
 
 	private int size = 3;
@@ -11,6 +13,10 @@ public class GameMode {
 	public GameMode() {
 		startGame();
 		count = 0;
+	}
+	
+	public GameMode(GameFrame gameF) {
+		
 	}
 	
 	

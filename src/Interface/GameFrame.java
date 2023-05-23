@@ -6,12 +6,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class GameFrame extends javax.swing.JFrame {
-
 	Games infp = new Games();
+	UserDataFrame userI =new UserDataFrame();
 	GameMode initGame = new GameMode();
 	//String start = infp.getFigure;
 	String start = "  X";
-
+	
+	
 	private void choosePlayer(){
 		if(start.equalsIgnoreCase("  X")){
 			start="  O";
@@ -19,19 +20,22 @@ public class GameFrame extends javax.swing.JFrame {
 			start="  X";
 		}
 	}
-	
-    public GameFrame() {
+	public GameFrame() {
+		
+	}
+    public GameFrame(Games infoPlayer) {
+    	infp=infoPlayer;
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
         this.setIconImage(icon.getImage());
+       
     }
     
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
         labelMessage = new javax.swing.JLabel();
         tabbedPane = new javax.swing.JTabbedPane();
         panel1 = new javax.swing.JPanel();
@@ -64,7 +68,7 @@ public class GameFrame extends javax.swing.JFrame {
         setResizable(false);
 
         labelMessage.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
-        labelMessage.setText("The 'userName' is playing with the machine. It is the 'user / pc' turn");
+        labelMessage.setText("The player "+infp.getNickName()+ " is playing with the machine.");
 
         tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -173,13 +177,18 @@ public class GameFrame extends javax.swing.JFrame {
         labelName.setText("NickName");
 
         labelUserN.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        labelUserN.setText("setNickName");
+        labelUserN.setText(infp.getNickName());
 
         labelF.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 28)); // NOI18N
         labelF.setText("Figure");
 
         labelXO.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 20)); // NOI18N
-        labelXO.setText("setFigure");
+        labelXO.setText(infp.getFigure());
+        if(labelXO.getText()=="X") {
+        	labelXO.setBackground(Color.red);
+        }else {
+        	labelXO.setBackground(Color.blue);
+        }
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -226,7 +235,7 @@ public class GameFrame extends javax.swing.JFrame {
         panel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
-        jLabel1.setText("Lunna Karina Sosa Espitia 202213314");
+        jLabel1.setText("Lunna Karina Sosa Espitia 202213014");
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jLabel2.setText("Ronald Samir Molinares Sanabria 202213350");
@@ -306,6 +315,8 @@ public class GameFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
+
+    
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
     	// TODO add your handling code here:
     	b1.setText(start);
@@ -430,7 +441,9 @@ public class GameFrame extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GameFrame().setVisible(true);
+                GameFrame gF=new GameFrame();
+                gF.setVisible(true);
+                new GameMode(gF);
             }
         });
     }
