@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Games {
@@ -42,10 +43,16 @@ public class Games {
 	public void setFigure(String figure) {
 		this.figure = figure;
 	}
+	
+	public String LocalDate() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return now.format(formatter);
+	}
 
 	@Override
 	public String toString() {
-		return nickName+ ";" + status + ";" + figure + ";" + LocalDateTime.now();
+		return nickName+ ";" + status + ";" + figure + ";" + LocalDate()+"\n";
 	}
 
 

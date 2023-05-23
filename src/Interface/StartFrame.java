@@ -2,6 +2,7 @@ package Interface;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 
@@ -55,7 +56,12 @@ public class StartFrame extends javax.swing.JFrame {
         butonHistory.setText("History");
         butonHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonHistoryActionPerformed(evt);
+                try {
+					butonHistoryActionPerformed(evt);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
@@ -95,7 +101,7 @@ public class StartFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void butonHistoryActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void butonHistoryActionPerformed(java.awt.event.ActionEvent evt) throws IOException {                                             
         HistoryFrame returnHistory = new HistoryFrame();
         returnHistory .setVisible(true);
         this.dispose();
@@ -103,7 +109,6 @@ public class StartFrame extends javax.swing.JFrame {
     
     
     private void butonPlayActionPerformed(java.awt.event.ActionEvent evt) {                                          
-
         UserDataFrame userData = new UserDataFrame();
         userData.setVisible(true);
         this.dispose();

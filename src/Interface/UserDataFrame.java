@@ -233,7 +233,6 @@ public class UserDataFrame extends javax.swing.JFrame {
     		infoPlayer.setFigure(rbuttonX.getText());
     	}
     	System.out.println(infoPlayer.getFigure());
-    	
     	GameFrame game = new GameFrame(infoPlayer);
     	game.setVisible(true);
     	this.dispose();

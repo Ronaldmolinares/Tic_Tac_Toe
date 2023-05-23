@@ -1,26 +1,47 @@
 package Interface;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.swing.ImageIcon;
 
 import model.Games;
 
 public class HistoryFrame extends javax.swing.JFrame {
 
-    public HistoryFrame() {
+    public HistoryFrame() throws IOException {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         ImageIcon icon = new ImageIcon(getClass().getResource("/resources/icono.png"));
         this.setIconImage(icon.getImage());
     }
     
-    public HistoryFrame(Games games) {
-    	
+    public String[][] parseText(String filePath)throws IOException  {
+    	String text = new String(Files.readAllBytes(Paths.get(filePath)));
+    	String[] lines = text.split("\n");
+        String[][] matrix = new String[lines.length][4];
+        
+        for (int i = 0; i < lines.length; i++) {
+            String line = lines[i];
+            String[] parts = line.split(";");
+            
+            for (int j = 0; j < 4; j++) {
+                if (j < parts.length) {
+                    matrix[i][j] = parts[j].trim();
+                } else {
+                    matrix[i][j] = null;
+                }
+            }
+        }
+        
+        return matrix;
     }
 
     @SuppressWarnings("unchecked")
                          
-    private void initComponents() {
+    private void initComponents() throws IOException {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -37,24 +58,12 @@ public class HistoryFrame extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+        	parseText("src/resources/history_game.txt"),
             new String [] {
                 "NICKNAME", "STATUS", "FIGURE", "DATA TIME"
             }
         ));
+        jTable1.setForeground(Color.BLACK);
         jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jTable1.setSelectionBackground(new java.awt.Color(204, 255, 255));
         jScrollPane1.setViewportView(jTable1);
@@ -129,7 +138,12 @@ public class HistoryFrame extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HistoryFrame().setVisible(true);
+                try {
+					new HistoryFrame().setVisible(true);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
     }
