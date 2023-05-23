@@ -1,6 +1,9 @@
 package Interface;
 
 import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
+
 import javax.swing.ImageIcon;
 
 public class StartFrame extends javax.swing.JFrame {
@@ -31,7 +34,6 @@ public class StartFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tic Tac Toe");
-
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 204));
@@ -54,7 +56,12 @@ public class StartFrame extends javax.swing.JFrame {
         butonHistory.setText("History");
         butonHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonHistoryActionPerformed(evt);
+                try {
+					butonHistoryActionPerformed(evt);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
@@ -94,14 +101,14 @@ public class StartFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void butonHistoryActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void butonHistoryActionPerformed(java.awt.event.ActionEvent evt) throws IOException {                                             
         HistoryFrame returnHistory = new HistoryFrame();
         returnHistory .setVisible(true);
         this.dispose();
     }                                            
-
+    
+    
     private void butonPlayActionPerformed(java.awt.event.ActionEvent evt) {                                          
-
         UserDataFrame userData = new UserDataFrame();
         userData.setVisible(true);
         this.dispose();
@@ -136,6 +143,7 @@ public class StartFrame extends javax.swing.JFrame {
     private javax.swing.JButton butonPlay;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+
     
 }
 
