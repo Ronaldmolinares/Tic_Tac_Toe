@@ -612,7 +612,7 @@ public class GameFrame extends javax.swing.JFrame {
 		setResizable(false);
 
 		labelMessage.setFont(new java.awt.Font("Nirmala UI", 1, 16)); // NOI18N
-		labelMessage.setText(infoP.getNickName() + " is playing with the machine" + "                            ");
+		labelMessage.setText(infoP.getNickName() + " is playing with the machine" + "                          ");
 
 		tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
 
