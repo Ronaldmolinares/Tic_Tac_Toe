@@ -18,17 +18,19 @@ Este proyecto es un juego de Tic Tac Toe! en el que competirás contra la comput
 ### Captura de Pantallla
 
 ![Vista del menu principal]
-(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/resources/image%201%20rm.png?raw=true)
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/frameInicio.png)
 ![Vista del Frame Register Player]
-()
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/userData.png)
 ![Vista del Frame del Game]
-()
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/gameFrame.png)
+![Vista del Pop up del Resultado del juego]
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/Resultado.png)
 ![Vista del Panel con la información del usuario]
-()
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/Tab2InfoUser.png)
 ![Vista del Panel con la información de los autores]
-()
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/Tab3InfoAuthor.png)
 ![Vista del Frame History]
-()
+(https://github.com/Ronaldmolinares/Tic_Tac_Toe/blob/e90c119ff07e75fb056c3d8982180b5ee43d796e/src/resources/historyPane.png)
 
 ### Funcionalidades
 
