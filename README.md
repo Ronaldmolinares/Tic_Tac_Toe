@@ -13,7 +13,7 @@
 
 ---
 
-Este proyecto es un juego de Tic Tac Toe! en el que competirás contra la computadira. El juego consistente en un tablero de 3X3 en el que alternas turno para colocar tu finca (una "X" o una "O") en una casilla vacía. El objetivo es conseguir una línea recta, ya sea horizontal, vertical o diagonal, con tu ficha.
+Este proyecto es un juego de Tic Tac Toe! en el que competirás contra la computadora. El juego consistente en un tablero de 3X3 en el que alternas turno para colocar tu finca (una "X" o una "O") en una casilla vacía. El objetivo es conseguir una línea recta, ya sea horizontal, vertical o diagonal, con tu ficha.
 
 ### Captura de Pantallla
 
