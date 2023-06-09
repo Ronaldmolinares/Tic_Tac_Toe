@@ -80,9 +80,9 @@ public class UserDataFrame extends javax.swing.JFrame {
         textFieldNickName.setBorder(null);
         textFieldNickName.setMaximumSize(new java.awt.Dimension(92, 21));
         textFieldNickName.setMinimumSize(new java.awt.Dimension(92, 21));
-        textFieldNickName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldNickNameActionPerformed(evt);
+        textFieldNickName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                textFieldNickNameMousePressed(evt);
             }
         });
         
@@ -214,6 +214,14 @@ public class UserDataFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
+    
+    private void textFieldNickNameMousePressed(java.awt.event.MouseEvent evt) {                                           
+        if(textFieldNickName.getText().equals("Enter your Nickname")) {
+        	textFieldNickName.setText("");
+        	textFieldNickName.setForeground(Color.BLACK);
+        }
+    }  
+    
     private void continueButtonActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
     	infoPlayer.setNickName(textFieldNickName.getText());
@@ -244,10 +252,7 @@ public class UserDataFrame extends javax.swing.JFrame {
         userData.setVisible(true);
         this.dispose();
     }                                          
-
-    private void textFieldNickNameActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-
-    }                                                 
+                                                
 
     private void rbuttonXActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
